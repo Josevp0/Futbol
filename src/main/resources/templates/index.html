@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Futbol Club</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark">
+            <div class="container d-flex justify-content-center">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item"><a class="nav-link" href="/entrenador">Entrenadores</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/asociacion">Asociaciones</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/competiciones">Competiciones</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/clubes">Clubes</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/jugadores">Jugadores</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container mt-4">
+        <div class="hero">
+            <h1 class="display-4">Futbol Club</h1>
+            <p class="lead">
+                Este es un proyecto de Java en el cual podemos realizar un CRUD para cada uno de los datos mencionados en la barra de navegación.
+            </p>
+        </div>
+    </main>
+
+    <footer class="mt-5 text-center">
+        <p>&copy; 2024 Futbol Club. Todos los derechos reservados Jose Manuel Villarreal Parada.</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://kit.fontawesome.com/your-fontawesome-kit.js" crossorigin="anonymous"></script>
+</body>
+</html>

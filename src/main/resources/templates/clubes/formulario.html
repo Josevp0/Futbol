@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario Club - Futbol Club</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" th:href="@{/css/formulario.css}">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul class="nav-list">
+                <li><a class="nav-link" href="/entrenador">Entrenadores</a></li>
+                <li><a class="nav-link" href="/asociacion">Asociaciones</a></li>
+                <li><a class="nav-link" href="/competiciones">Competiciones</a></li>
+                <li><a class="nav-link" href="/clubes">Clubes</a></li>
+                <li><a class="nav-link" href="/jugadores">Jugadores</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container mt-4">
+        <div class="card">
+            <div class="card-header">
+                <h2 th:text="${club.id} != null ? 'Editar Club' : 'Nuevo Club'"></h2>
+            </div>
+            <div class="card-body">
+                <form th:action="@{/clubes/guardar}" th:object="${club}" method="post">
+                    <input type="hidden" th:field="*{id}">
+
+                    <div class="mb-3">
+                        <label for="nombre" class="form-label">Nombre</label>
+                        <input type="text" class="form-control" id="nombre" th:field="*{nombre}" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="entrenador" class="form-label">Entrenador</label>
+                        <select class="form-control" id="entrenador" th:field="*{entrenadores.id}" required>
+                            <option th:each="entrenador : ${entrenadores}" 
+                                    th:value="${entrenador.id}" 
+                                    th:text="${entrenador.nombre}"></option>
+                        </select>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="asociacion" class="form-label">Asociación</label>
+                        <select class="form-control" id="asociacion" th:field="*{asociacion.id}" required>
+                            <option th:each="asociacion : ${asociaciones}" 
+                                    th:value="${asociacion.id}" 
+                                    th:text="${asociacion.nombre}"></option>
+                        </select>
+                    </div>
+
+					<div class="mb-3">
+					    <label for="competiciones" class="form-label">Competiciones</label>
+					    <select class="form-control" id="competiciones" th:field="*{competiciones}" required>
+					        <option th:each="competicion : ${competiciones}" 
+					                th:value="${competicion.id}" 
+					                th:text="${competicion.nombre}"></option>
+					    </select>
+					</div>
+
+                    <div class="d-flex gap-2">
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-save"></i> Guardar
+                        </button>
+                        <a href="/clubes" class="btn btn-secondary">
+                            <i class="fas fa-arrow-left"></i> Volver
+                        </a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <footer class="mt-5">
+        <p>&copy; 2024 Futbol Club. Todos los derechos reservados Jose Manuel Villarreal Parada.</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

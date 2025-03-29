@@ -1,0 +1,244 @@
+/* General */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    height: 100%;
+    scroll-behavior: smooth;
+    display: flex;
+    flex-direction: column;
+}
+
+body {
+    background: url('img/fondo2.jpg') no-repeat center center fixed;
+    background-size: cover;
+    color: #ffffff;
+    min-height: 100vh;
+}
+
+/* Navbar */
+header nav {
+    background-color: rgba(0, 0, 0, 0.85);
+    padding: 1rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(10px);
+}
+
+.nav-list {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    list-style: none;
+}
+
+.nav-link {
+    color: #ffd700 !important;
+    font-weight: bold;
+    text-transform: uppercase;
+    padding: 0.5rem 1rem;
+    font-size: 1.1rem;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.nav-link:hover {
+    color: #ffffff !important;
+    transform: translateY(-2px);
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 50%;
+    background-color: #ffffff;
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+/* Título de la página */
+h1.text-primary {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #ffd700;
+}
+
+/* Contenido principal */
+main {
+    flex-grow: 1;
+    padding: 2rem; /* Ajusta el padding según necesites */
+}
+
+/* Formulario Entrenador */
+.card {
+    background: rgba(0, 0, 0, 0.7);
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+}
+
+.card-header {
+    background-color: rgba(0, 0, 0, 0.9);
+    border-radius: 10px 10px 0 0;
+    color: #ffd700;
+}
+
+.card-body {
+    padding: 2rem;
+}
+
+.form-label {
+    color: #ffd700;
+    font-size: 1rem;
+}
+
+.form-control {
+    background-color: rgba(0, 0, 0, 0.85);
+    border: 1px solid #ffd700;
+    color: #ffffff;
+}
+
+.form-control:focus {
+    background-color: rgba(0, 0, 0, 0.9);
+    border-color: #ffffff;
+    box-shadow: 0 0 5px rgba(255, 215, 0, 0.7);
+}
+
+.btn {
+    background-color: #ffd700;
+    color: #000000;
+    font-weight: bold;
+}
+
+.btn:hover {
+    background-color: #ffcc00;
+}
+
+/* Lista de Entrenadores */
+table {
+    width: 100%;
+    margin-top: 20px;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 1rem;
+    text-align: center;
+}
+
+th {
+    background-color: rgba(0, 0, 0, 0.85);
+    color: #ffd700;
+}
+
+td {
+    background-color: rgba(0, 0, 0, 0.75);
+    color: #ffffff;
+}
+
+table thead tr:hover {
+    background-color: rgba(0, 0, 0, 0.85);
+}
+
+.table-responsive {
+    margin-top: 2rem;
+}
+
+/* Acciones */
+.table td a {
+    color: #ffffff;
+    transition: background-color 0.3s ease;
+}
+
+.table td a:hover {
+    background-color: rgba(255, 215, 0, 0.3);
+}
+
+/* Estilo de botones de acción */
+.btn-warning, .btn-danger {
+    font-size: 0.9rem;
+    font-weight: bold;
+}
+
+.btn-warning:hover {
+    background-color: #e0a800;
+}
+
+.btn-danger:hover {
+    background-color: #c82333;
+}
+
+/* Footer */
+footer {
+    background: rgba(0, 0, 0, 0.85);
+    padding: 1.5rem;
+    color: #ffd700;
+    border-top: 2px solid #ffd700;
+    box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    margin-top: auto;
+}
+
+footer p {
+    margin: 0;
+    font-size: 1rem;
+    letter-spacing: 1px;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+    .nav-list {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .nav-link {
+        font-size: 1rem;
+    }
+
+    .card-body {
+        padding: 1.5rem;
+    }
+
+    .form-label {
+        font-size: 0.9rem;
+    }
+
+    .form-control {
+        font-size: 1rem;
+    }
+
+    .btn {
+        font-size: 1rem;
+    }
+
+    table th, table td {
+        padding: 0.75rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .card-body {
+        padding: 1rem;
+    }
+
+    .form-label {
+        font-size: 0.8rem;
+    }
+
+    .form-control {
+        font-size: 0.9rem;
+    }
+
+    .btn {
+        font-size: 0.9rem;
+    }
+}

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario Entrenador - Futbol Club</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" th:href="@{/css/formulario.css}">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul class="nav-list">
+                <li><a class="nav-link" href="/entrenador">Entrenadores</a></li>
+                <li><a class="nav-link" href="/asociacion">Asociaciones</a></li>
+                <li><a class="nav-link" href="/competiciones">Competiciones</a></li>
+                <li><a class="nav-link" href="/clubes">Clubes</a></li>
+                <li><a class="nav-link" href="/jugadores">Jugadores</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container mt-4">
+        <div class="card">
+            <div class="card-header">
+                <h2 th:text="${entrenador.id} ? 'Editar Entrenador' : 'Nuevo Entrenador'"></h2>
+            </div>
+            <div class="card-body">
+                <form th:action="@{/entrenador/guardar}" th:object="${entrenador}" method="post">
+                    <input type="hidden" th:field="*{id}">
+                    
+                    <div class="mb-3">
+                        <label for="nombre" class="form-label">Nombre</label>
+                        <input type="text" class="form-control" id="nombre" th:field="*{nombre}" required>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="apellido" class="form-label">Apellido</label>
+                        <input type="text" class="form-control" id="apellido" th:field="*{apellido}" required>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="edad" class="form-label">Edad</label>
+                        <input type="number" class="form-control" id="edad" th:field="*{edad}" required min="18" max="100">
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="nacionalidad" class="form-label">Nacionalidad</label>
+                        <input type="text" class="form-control" id="nacionalidad" th:field="*{nacionalidad}" required>
+                    </div>
+
+                    <div class="d-flex gap-2">
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-save"></i> Guardar
+                        </button>
+                        <a href="/entrenador" class="btn btn-secondary">
+                            <i class="fas fa-arrow-left"></i> Volver
+                        </a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <footer class="mt-5">
+        <p>&copy; 2024 Futbol Club. Todos los derechos reservados Jose Manuel Villarreal Parada.</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://kit.fontawesome.com/your-fontawesome-kit.js" crossorigin="anonymous"></script>
+</body>
+</html>
